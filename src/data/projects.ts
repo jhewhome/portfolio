@@ -18,14 +18,27 @@ export const projects: Project[] = [
     slug: 'ahop',
     title: 'AHOP — Graduate Research Project',
     summary:
-      'Master\'s research system hosted at ahop.jhewhome.xyz — a hands-on capstone demonstrating full-stack design and implementation.',
+      'Graduate school web system hosted at ahop.jhewhome.xyz — a hands-on project demonstrating full-stack design and implementation.',
     description:
-      'AHOP is my MSIT graduate research project, built as a complete web-based system. It reflects my approach to requirements analysis, database design, PHP application architecture, and user-centered workflows. The live deployment runs on a dedicated subdomain to keep academic work organized alongside my personal portfolio.',
+      'AHOP is a graduate school project built as a complete web-based system. It reflects my approach to requirements analysis, database design, PHP application architecture, and user-centered workflows. The live deployment runs on a dedicated subdomain to keep academic work organized alongside my personal portfolio.',
     tags: ['Graduate Research'],
     stack: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
     href: 'https://ahop.jhewhome.xyz',
     featured: true,
     status: 'Live',
+  },
+  {
+    slug: 'glycemic-dss',
+    title: 'Diabetic Glycemic DSS (CDSS)',
+    summary:
+      'A personal MSIT thesis-support project exploring clinical decision support for glycemic monitoring and insights.',
+    description:
+      'A separate personal project from AHOP, focused on building a glycemic clinical decision support system (CDSS/DSS). The goal is to combine structured health data capture, analytics, and decision-support outputs (e.g., trends, risk flags, and actionable insights) with clear disclaimers and privacy-safe demo data.',
+    tags: ['Graduate Research', 'Analytics'],
+    stack: ['Python', 'SQL', 'Data visualization', 'Clinical decision support'],
+    github: 'https://github.com/jhewhome/glycemic-cdss',
+    featured: true,
+    status: 'In Progress',
   },
   {
     slug: 'bhc-system',
