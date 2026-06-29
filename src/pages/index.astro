@@ -33,6 +33,14 @@ const featured = getFeaturedProjects();
       </div>
 
       <aside class="hero-panel card">
+        <img
+          class="hero-photo"
+          src="/images/jerome-faculty.png"
+          alt="Portrait photo"
+          loading="eager"
+          width="360"
+          height="360"
+        />
         <p class="panel-label">At a glance</p>
         <ul class="panel-list">
           <li><strong>BS Computer Science</strong> — 2007</li>
@@ -175,6 +183,18 @@ const featured = getFeaturedProjects();
   .hero-panel {
     padding: 1.75rem;
     background: var(--color-surface-elevated);
+  }
+
+  .hero-photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 50% 15%;
+    border-radius: 18px;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1.25rem;
+    background: var(--color-bg);
   }
 
   .panel-label {
