@@ -1,6 +1,6 @@
 # jhewhome.xyz — Personal Portfolio
 
-Personal portfolio site for **Jerome Tuballas De Guzman** — full-stack developer, PUP IT faculty, and MSIT candidate.
+Personal portfolio site for **Jerome Tuballas De Guzman** — full-stack developer, part-time faculty member in the Computer Engineering and Information Technology Department, PUP Manila, Institute of Technology, and MSIT candidate.
 
 Built with [Astro](https://astro.build) for fast static delivery. The graduate research project (AHOP) remains on `ahop.jhewhome.xyz`.
 

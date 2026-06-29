@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { skills } from '../data/site';
+import { skills, site } from '../data/site';
 ---
 
-<Layout title="About" description="About Jerome Tuballas De Guzman — PUP IT faculty, MSIT student, former Senior UI/UX Developer, and full-stack web practitioner.">
+<Layout title="About" description={`About Jerome Tuballas De Guzman — ${site.facultyRole} at PUP, MSIT student, former Senior UI/UX Developer, and full-stack web practitioner.`}>
   <section class="page-hero">
     <div class="container">
       <span class="section-label">About</span>
@@ -28,13 +28,14 @@ import { skills } from '../data/site';
           />
           <div>
             <h2>Biography</h2>
-            <p class="subtitle">PUP IT Faculty · Full-stack developer · MSIT (Data Analytics)</p>
+            <p class="subtitle">{site.facultyRole} · MSIT (Data Analytics)</p>
           </div>
         </div>
         <p>
           Jerome Tuballas De Guzman is a <strong>Bachelor of Science in Computer Science</strong> graduate (2007)
-          and <strong>part-time faculty member</strong> at the Institute of Technology, Polytechnic University of
-          the Philippines (PUP) Manila, where he teaches web development subjects including HTML, CSS, PHP, and MySQL.
+          and <strong>part-time faculty member in the Computer Engineering and Information Technology Department</strong>
+          at the Polytechnic University of the Philippines (PUP) Manila, Institute of Technology, where he teaches
+          web development subjects including HTML, CSS, PHP, and MySQL.
         </p>
         <p>
           Before teaching, he worked as a <strong>Senior Front-End UI/UX Developer</strong> for a Korean company,
@@ -80,8 +81,8 @@ import { skills } from '../data/site';
           <li>
             <span class="year">Present</span>
             <div>
-              <strong>PUP IT Faculty</strong>
-              <p>Teaching web development at the Institute of Technology, PUP Manila.</p>
+              <strong>CE & IT Department Faculty</strong>
+              <p>Part-time faculty member, PUP Manila, Institute of Technology.</p>
             </div>
           </li>
           <li>

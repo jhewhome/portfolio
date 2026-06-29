@@ -1,13 +1,18 @@
 export const site = {
   name: 'Jerome Tuballas De Guzman',
   shortName: 'Jerome T. De Guzman',
-  title: 'Full-Stack Developer & Web Development Instructor',
+  title: 'Full-Stack Developer & Part-time CE & IT Faculty',
   tagline:
     'I build practical web systems and teach the fundamentals that power them — HTML, CSS, PHP, and MySQL — backed by industry UI/UX experience and years of freelance delivery.',
   url: 'https://jhewhome.xyz',
   email: 'jerome.t.deguzman87@gmail.com',
+  department: 'Computer Engineering and Information Technology Department',
+  facultyAffiliation:
+    'Computer Engineering and Information Technology Department, PUP Manila, Institute of Technology',
+  facultyRole:
+    'Part-time faculty member in the Computer Engineering and Information Technology Department, PUP Manila, Institute of Technology',
   description:
-    'PUP IT faculty and MSIT student. Former Senior UI/UX Developer. Freelance and full-stack web projects in HTML, CSS, PHP, MySQL, and modern web stacks.',
+    'Part-time faculty member in the Computer Engineering and Information Technology Department, PUP Manila, Institute of Technology. MSIT student and former Senior UI/UX Developer. Freelance and full-stack web projects in HTML, CSS, PHP, MySQL, and modern web stacks.',
   openTo: ['Freelance web projects', 'Part-time development engagements', 'Full-time opportunities'],
 };
 
@@ -35,7 +40,7 @@ export const highlights = [
   },
   {
     label: 'Teaching',
-    text: 'Part-time faculty, PUP Institute of Technology — HTML, CSS, PHP, MySQL',
+    text: 'Part-time faculty member, Computer Engineering and Information Technology Department, PUP Manila, Institute of Technology — HTML, CSS, PHP, MySQL',
   },
   {
     label: 'Industry',
