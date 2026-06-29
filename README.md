@@ -28,8 +28,7 @@ Open [http://localhost:4321](http://localhost:4321).
 
 Edit `src/data/site.ts`:
 
-1. **Email** — replace `jerome.deguzman@example.com` with your real address
-2. **Social links** — add your GitHub and LinkedIn URLs in `social`
+1. **Social links** — add your GitHub and LinkedIn URLs in `social`
 
 Edit `src/data/projects.ts` to add screenshots, GitHub repos, or refine project copy.
 

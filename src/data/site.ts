@@ -5,7 +5,7 @@ export const site = {
   tagline:
     'I build practical web systems and teach the fundamentals that power them — HTML, CSS, PHP, and MySQL — backed by industry UI/UX experience and years of freelance delivery.',
   url: 'https://jhewhome.xyz',
-  email: 'jerome.deguzman@example.com', // TODO: replace with your real email
+  email: 'jerome.t.deguzman87@gmail.com',
   description:
     'PUP IT faculty and MSIT student. Former Senior UI/UX Developer. Freelance and full-stack web projects in HTML, CSS, PHP, MySQL, and modern web stacks.',
   openTo: ['Freelance web projects', 'Part-time development engagements', 'Full-time opportunities'],
@@ -20,8 +20,12 @@ export const nav = [
 ];
 
 export const social = [
-  { label: 'GitHub', href: 'https://github.com/', icon: 'github' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/', icon: 'linkedin' },
+  { label: 'GitHub', href: 'https://github.com/jhewhome', icon: 'github' },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/jerome-de-guzman-9a91b824/',
+    icon: 'linkedin',
+  },
 ];
 
 export const highlights = [
