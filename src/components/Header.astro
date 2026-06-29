@@ -64,7 +64,7 @@ const currentPath = normalizePath(Astro.url.pathname);
     top: 0;
     z-index: 100;
     height: var(--header-height);
-    background: rgba(247, 245, 242, 0.92);
+    background: rgba(246, 247, 251, 0.72);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--color-border);
   }
@@ -91,11 +91,12 @@ const currentPath = normalizePath(Astro.url.pathname);
     width: 42px;
     height: 42px;
     border-radius: 12px;
-    background: var(--color-navy);
+    background: var(--gradient-accent);
     color: #fff;
     font-weight: 700;
     font-size: 0.85rem;
     letter-spacing: 0.04em;
+    box-shadow: var(--shadow-sm);
   }
 
   .brand-text {
@@ -131,7 +132,12 @@ const currentPath = normalizePath(Astro.url.pathname);
   .nav-link:hover,
   .nav-link.active {
     color: var(--color-ink);
-    background: var(--color-surface);
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(124, 58, 237, 0.22);
+  }
+
+  .nav-link {
+    border: 1px solid transparent;
   }
 
   .header-cta {

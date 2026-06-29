@@ -9,8 +9,8 @@ import { projects } from '../data/projects';
       <span class="section-label">Portfolio</span>
       <h1>Projects</h1>
       <p class="lead">
-        A mix of graduate research, freelance delivery, teaching-related builds, and industry experience.
-        Each project reflects a different side of how I work.
+        Current focus: graduate research (AHOP), MSIT glycemic decision support (Python prototype),
+        and the integrated Barangay BIS + Health Center system for Balong Bato.
       </p>
     </div>
   </section>
@@ -25,7 +25,14 @@ import { projects } from '../data/projects';
                 {project.tags.map((tag) => (
                   <span class="tag">{tag}</span>
                 ))}
-                <span class:list={['tag', 'status', project.status === 'Live' && 'status-live']}>
+                <span
+                  class:list={[
+                    'tag',
+                    'status',
+                    project.status === 'Live' && 'status-live',
+                    project.status === 'Prototype' && 'status-prototype',
+                  ]}
+                >
                   {project.status}
                 </span>
               </div>
@@ -90,6 +97,11 @@ import { projects } from '../data/projects';
   .status-live {
     background: #e8f5ee;
     color: #1f6b45;
+  }
+
+  .status-prototype {
+    background: rgba(245, 158, 11, 0.14);
+    color: #b45309;
   }
 
   .summary {
