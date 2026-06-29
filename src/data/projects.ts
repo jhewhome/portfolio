@@ -16,14 +16,15 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: 'ahop',
-    title: 'AHOP — Graduate Research Project',
+    title: 'AHOP — Healthcare Information System',
     summary:
-      'Graduate school web system at ahop.jhewhome.xyz — full-stack design, database architecture, and user-centered workflows.',
+      'A graduate research HIS built on Snipe-IT (Laravel 11) — patient records, OPD queue, lab, billing, supplies, and clinical analytics. Live on GCP.',
     description:
-      'AHOP is my current graduate school project: a complete web-based system deployed at ahop.jhewhome.xyz. It covers requirements analysis, database design, PHP application architecture, and practical user workflows. Kept on a dedicated subdomain so academic work stays organized alongside my personal portfolio.',
+      'AHOP is a healthcare information system built as a customization of the open-source Snipe-IT asset management platform (Laravel 11). It extends Snipe-IT with integrated clinical workflows: patient registration and EMR-lite records; Outpatient Department (OPD) visits and queue management; appointment scheduling and reception check-in; laboratory orders and results; billing and payment tracking; medical equipment and supplies management via the Snipe-IT assets module; and a clinical dashboard with analytics and operational reports. The system is deployed on Google Cloud Platform for demonstration and supports local development on XAMPP (Windows). Source code is version-controlled on GitHub.',
     tags: ['Graduate Research'],
-    stack: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
+    stack: ['Laravel 11', 'PHP', 'MySQL', 'Snipe-IT', 'GCP', 'HTML', 'CSS', 'JavaScript'],
     href: 'https://ahop.jhewhome.xyz',
+    github: 'https://github.com/jhewhome/ahop-snipe-it',
     featured: true,
     status: 'Live',
   },
@@ -57,11 +58,11 @@ export const projects: Project[] = [
     slug: 'freelance-web-projects',
     title: 'BPO & Freelance Web Projects',
     summary:
-      'Delivered web-based solutions across multiple domains — from landing pages to custom PHP applications.',
+      'Client websites, custom PHP apps, WordPress administration, and SEO — delivered across multiple niches and industries.',
     description:
-      'Years of hands-on freelance and BPO work building client websites, internal tools, and maintenance engagements. Projects span e-commerce layouts, corporate sites, and custom CRUD applications. Client names available on request.',
+      'Years of hands-on freelance and BPO work building and maintaining client websites, internal tools, and ongoing web engagements. Projects span landing pages, corporate sites, custom PHP/MySQL applications, and WordPress sites across various niches — including theme customization, plugin setup, content updates, and day-to-day site administration. Also provided SEO support: on-page optimization, technical fixes, metadata, and performance improvements to help niche sites rank and convert better. Client names available on request.',
     tags: ['Freelance', 'Industry'],
-    stack: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript', 'WordPress'],
+    stack: ['PHP', 'MySQL', 'WordPress', 'SEO', 'HTML', 'CSS', 'JavaScript', 'Web administration'],
     featured: false,
     status: 'Completed',
   },
