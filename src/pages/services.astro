@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { services } from '../data/site';
+---
+
+<Layout title="Services" description="Freelance web development services by Jerome De Guzman — websites, PHP/MySQL apps, UI implementation, maintenance, and tutoring.">
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Freelance</span>
+      <h1>Services</h1>
+      <p class="lead">
+        Practical web development for professionals, small businesses, and students —
+        backed by years of delivery experience and a teacher's eye for clarity.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container services-grid">
+      {
+        services.map((service) => (
+          <article class="service-card card">
+            <h2>{service.title}</h2>
+            <p>{service.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="process section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">How I work</span>
+        <h2>A straightforward process</h2>
+      </div>
+      <ol class="process-list">
+        <li>
+          <strong>Discover</strong>
+          <span>Understand your goals, users, and constraints.</span>
+        </li>
+        <li>
+          <strong>Plan</strong>
+          <span>Define scope, timeline, and tech stack — no surprises.</span>
+        </li>
+        <li>
+          <strong>Build</strong>
+          <span>Iterative development with clear communication.</span>
+        </li>
+        <li>
+          <strong>Deliver</strong>
+          <span>Launch, handoff, and optional ongoing support.</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>Have a project in mind?</h2>
+        <p>Tell me what you're building — I'll reply with honest feedback on scope and fit.</p>
+      </div>
+      <a href="/contact" class="btn btn-primary">Start a conversation</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 4rem 0 1rem;
+  }
+
+  .services-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .service-card {
+    padding: 1.75rem;
+  }
+
+  .service-card h2 {
+    font-size: 1.15rem;
+    color: var(--color-navy);
+  }
+
+  .service-card p {
+    color: var(--color-ink-muted);
+    margin: 0;
+  }
+
+  .section-alt {
+    padding: 4rem 0;
+    background: var(--color-surface);
+    border-block: 1px solid var(--color-border);
+  }
+
+  .process-list {
+    display: grid;
+    gap: 1rem;
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  @media (min-width: 700px) {
+    .process-list {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .process-list li {
+    counter-increment: step;
+    padding: 1.5rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    position: relative;
+  }
+
+  .process-list li::before {
+    content: counter(step, decimal-leading-zero);
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .process-list strong {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+  }
+
+  .process-list span {
+    font-size: 0.9rem;
+    color: var(--color-ink-muted);
+  }
+
+  .cta-band {
+    padding: 4rem 0;
+    background: var(--color-navy);
+    color: #e8ecf4;
+  }
+
+  .cta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-band h2 {
+    color: #fff;
+  }
+
+  .cta-band p {
+    color: #a8b2c8;
+    max-width: 45ch;
+    margin: 0;
+  }
+</style>

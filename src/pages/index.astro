@@ -1,0 +1,277 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import HighlightCard from '../components/HighlightCard.astro';
+import { site, highlights, skills } from '../data/site';
+import { getFeaturedProjects } from '../data/projects';
+
+const featured = getFeaturedProjects();
+---
+
+<Layout>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <p class="eyebrow">PUP IT Faculty · MSIT Candidate</p>
+        <h1>{site.shortName}</h1>
+        <p class="hero-title">{site.title}</p>
+        <p class="lead">{site.tagline}</p>
+        <div class="hero-actions">
+          <a href="/projects" class="btn btn-primary">View my work</a>
+          <a href="/contact" class="btn btn-secondary">Get in touch</a>
+        </div>
+        <ul class="open-list">
+          {
+            site.openTo.map((item) => (
+              <li>
+                <span class="dot" aria-hidden="true"></span>
+                Open to {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <aside class="hero-panel card">
+        <p class="panel-label">At a glance</p>
+        <ul class="panel-list">
+          <li><strong>BS Computer Science</strong> — 2007</li>
+          <li><strong>MSIT</strong> — in progress, PUP Graduate School</li>
+          <li><strong>Faculty</strong> — PUP Institute of Technology, Manila</li>
+          <li><strong>Former role</strong> — Senior Front-End UI/UX Developer</li>
+          <li><strong>Practice</strong> — BPO & freelance full-stack development</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Background</span>
+        <h2>Experience that spans industry, teaching, and research</h2>
+      </div>
+      <div class="grid-2 highlights-grid">
+        {highlights.map((item) => <HighlightCard label={item.label} text={item.text} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header section-header-row">
+        <div>
+          <span class="section-label">Selected work</span>
+          <h2>Projects & practice</h2>
+          <p class="lead">From graduate research to freelance delivery — real systems, real outcomes.</p>
+        </div>
+        <a href="/projects" class="btn btn-secondary">All projects</a>
+      </div>
+      <div class="grid-2 projects-grid">
+        {featured.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Skills</span>
+        <h2>What I work with</h2>
+      </div>
+      <div class="skills-grid">
+        {
+          Object.entries(skills).map(([group, items]) => (
+            <div class="skill-group card">
+              <h3>{group.charAt(0).toUpperCase() + group.slice(1)}</h3>
+              <ul>
+                {items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>Let's build something useful</h2>
+        <p>Whether you need a freelance developer, a part-time engineer, or a web development mentor — I'd like to hear from you.</p>
+      </div>
+      <a href="/contact" class="btn btn-primary">Contact Jerome</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    padding: 4.5rem 0 3rem;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% -10%, rgba(184, 50, 47, 0.08), transparent),
+      radial-gradient(ellipse 60% 50% at 0% 100%, rgba(30, 42, 74, 0.06), transparent);
+  }
+
+  .hero-grid {
+    display: grid;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  @media (min-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  .eyebrow {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.2rem;
+    color: var(--color-ink-muted);
+    margin-bottom: 1.25rem;
+    max-width: 50ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.75rem 0;
+  }
+
+  .open-list {
+    margin-top: 1.5rem;
+  }
+
+  .open-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.92rem;
+    color: var(--color-ink-muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #2d9f5f;
+    flex-shrink: 0;
+  }
+
+  .hero-panel {
+    padding: 1.75rem;
+    background: var(--color-surface-elevated);
+  }
+
+  .panel-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-subtle);
+    margin-bottom: 1rem;
+  }
+
+  .panel-list li {
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.92rem;
+    color: var(--color-ink-muted);
+  }
+
+  .panel-list li:last-child {
+    border-bottom: none;
+  }
+
+  .panel-list strong {
+    color: var(--color-ink);
+  }
+
+  .section-alt {
+    background: var(--color-surface);
+    border-block: 1px solid var(--color-border);
+  }
+
+  .section-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .highlights-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .projects-grid {
+    align-items: stretch;
+  }
+
+  .skills-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .skill-group {
+    padding: 1.35rem;
+  }
+
+  .skill-group h3 {
+    font-size: 1rem;
+    text-transform: capitalize;
+    margin-bottom: 0.85rem;
+    color: var(--color-navy);
+  }
+
+  .skill-group li {
+    font-size: 0.92rem;
+    color: var(--color-ink-muted);
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .skill-group li:last-child {
+    border-bottom: none;
+  }
+
+  .cta-band {
+    padding: 4rem 0;
+    background: var(--color-navy);
+    color: #e8ecf4;
+  }
+
+  .cta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-band h2 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-band p {
+    color: #a8b2c8;
+    max-width: 50ch;
+    margin: 0;
+  }
+</style>

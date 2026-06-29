@@ -1,0 +1,35 @@
+---
+interface Props {
+  label: string;
+  text: string;
+}
+
+const { label, text } = Astro.props;
+---
+
+<div class="highlight-card card">
+  <p class="highlight-label">{label}</p>
+  <p class="highlight-text">{text}</p>
+</div>
+
+<style>
+  .highlight-card {
+    padding: 1.25rem 1.35rem;
+  }
+
+  .highlight-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .highlight-text {
+    font-size: 0.95rem;
+    color: var(--color-ink);
+    margin: 0;
+    line-height: 1.5;
+  }
+</style>

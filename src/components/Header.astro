@@ -1,0 +1,182 @@
+---
+import { nav, site } from '../data/site';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark">JD</span>
+      <span class="brand-text">
+        <strong>Jerome De Guzman</strong>
+        <small>Developer & Instructor</small>
+      </span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-list">
+        {
+          nav.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class:list={['nav-link', { active: currentPath === item.href }]}
+                aria-current={currentPath === item.href ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <a href="/contact" class="btn btn-primary header-cta">Contact</a>
+
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" id="menu-toggle">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.querySelector('.nav-list');
+
+  toggle?.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    nav?.classList.toggle('open');
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--header-height);
+    background: rgba(247, 245, 242, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    gap: 1rem;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--color-navy);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .brand-text strong {
+    font-size: 0.95rem;
+  }
+
+  .brand-text small {
+    font-size: 0.75rem;
+    color: var(--color-ink-muted);
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem 0.85rem;
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--color-ink-muted);
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-ink);
+    background: var(--color-surface);
+  }
+
+  .header-cta {
+    padding: 0.65rem 1.1rem;
+    font-size: 0.88rem;
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+  }
+
+  @media (max-width: 860px) {
+    nav {
+      position: absolute;
+      top: var(--header-height);
+      left: 0;
+      right: 0;
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: 1rem;
+      display: none;
+    }
+
+    nav:has(.nav-list.open) {
+      display: block;
+    }
+
+    .nav-list {
+      flex-direction: column;
+    }
+
+    .header-cta {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+  }
+</style>

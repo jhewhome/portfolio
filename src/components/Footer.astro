@@ -1,0 +1,110 @@
+---
+import { site, social } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <p class="footer-name">{site.shortName}</p>
+      <p class="footer-tagline">{site.title}</p>
+      <p class="footer-open">
+        Open to: {site.openTo.join(' · ')}
+      </p>
+    </div>
+
+    <div>
+      <p class="footer-label">Connect</p>
+      <ul class="footer-links">
+        <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+        {
+          social.map((link) => (
+            <li>
+              <a href={link.href} target="_blank" rel="noopener noreferrer">
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <p class="footer-label">Sites</p>
+      <ul class="footer-links">
+        <li><a href={site.url}>jhewhome.xyz</a></li>
+        <li><a href="https://ahop.jhewhome.xyz" target="_blank" rel="noopener noreferrer">ahop.jhewhome.xyz</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>&copy; {year} {site.name}. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 4rem;
+    padding: 3.5rem 0 2rem;
+    background: var(--color-navy);
+    color: #d8deea;
+  }
+
+  .footer-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 700px) {
+    .footer-grid {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+  }
+
+  .footer-name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.35rem;
+  }
+
+  .footer-tagline,
+  .footer-open {
+    font-size: 0.9rem;
+    color: #a8b2c8;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8fa0bf;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-links a {
+    color: #e8ecf4;
+    text-decoration: none;
+  }
+
+  .footer-links a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  .footer-links li + li {
+    margin-top: 0.4rem;
+  }
+
+  .footer-bottom {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+    color: #8fa0bf;
+  }
+</style>

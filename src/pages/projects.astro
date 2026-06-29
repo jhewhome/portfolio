@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { projects } from '../data/projects';
+---
+
+<Layout title="Projects" description="Selected projects by Jerome De Guzman — graduate research, freelance work, teaching systems, and industry experience.">
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Portfolio</span>
+      <h1>Projects</h1>
+      <p class="lead">
+        A mix of graduate research, freelance delivery, teaching-related builds, and industry experience.
+        Each project reflects a different side of how I work.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container projects-list">
+      {
+        projects.map((project) => (
+          <article id={project.slug} class="project-detail card">
+            <div class="project-meta">
+              <div class="tags">
+                {project.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+                <span class:list={['tag', 'status', project.status === 'Live' && 'status-live']}>
+                  {project.status}
+                </span>
+              </div>
+            </div>
+
+            <h2>{project.title}</h2>
+            <p class="summary">{project.summary}</p>
+            <p class="description">{project.description}</p>
+
+            <div class="stack">
+              {project.stack.map((tech) => (
+                <span>{tech}</span>
+              ))}
+            </div>
+
+            <div class="actions">
+              {project.href && (
+                <a href={project.href} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                  Live demo
+                </a>
+              )}
+              {project.github && (
+                <a href={project.github} class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                  View code
+                </a>
+              )}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 4rem 0 1rem;
+  }
+
+  .projects-list {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .project-detail {
+    padding: 2rem;
+    scroll-margin-top: calc(var(--header-height) + 1rem);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .status {
+    background: #eef0f3;
+    color: var(--color-ink-muted);
+  }
+
+  .status-live {
+    background: #e8f5ee;
+    color: #1f6b45;
+  }
+
+  .summary {
+    font-size: 1.05rem;
+    color: var(--color-ink-muted);
+  }
+
+  .description {
+    color: var(--color-ink-muted);
+    max-width: 72ch;
+  }
+
+  .stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 1.5rem 0;
+  }
+
+  .stack span {
+    font-size: 0.78rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    color: var(--color-ink-muted);
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+</style>

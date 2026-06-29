@@ -1,0 +1,198 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { skills } from '../data/site';
+---
+
+<Layout title="About" description="About Jerome Tuballas De Guzman — PUP IT faculty, MSIT student, former Senior UI/UX Developer, and full-stack web practitioner.">
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">About</span>
+      <h1>Builder, teacher, and lifelong learner</h1>
+      <p class="lead">
+        I bring industry delivery experience into the classroom — and bring classroom clarity back into every project I build.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container about-grid">
+      <div class="prose card">
+        <h2>Biography</h2>
+        <p>
+          Jerome Tuballas De Guzman is a <strong>Bachelor of Science in Computer Science</strong> graduate (2007)
+          and <strong>part-time faculty member</strong> at the Institute of Technology, Polytechnic University of
+          the Philippines (PUP) Manila, where he teaches web development subjects including HTML, CSS, PHP, and MySQL.
+        </p>
+        <p>
+          Before teaching, he worked as a <strong>Senior Front-End UI/UX Developer</strong> for a Korean company,
+          bringing product-level design and implementation experience into his practice. He also has
+          <strong>extensive BPO and freelance web development</strong> experience, delivering web-based solutions
+          across different domains.
+        </p>
+        <p>
+          He is currently pursuing a <strong>Master of Science in Information Technology (MSIT)</strong> at the
+          PUP Graduate School, with a focus on strengthening his research, academic writing, and data analytics
+          competencies alongside his technical expertise.
+        </p>
+        <p>
+          A hands-on practitioner by nature, Jerome values clear code, usable interfaces, and systems that solve
+          real problems — whether for students, clients, or research.
+        </p>
+      </div>
+
+      <aside class="timeline card">
+        <h2>Timeline</h2>
+        <ul>
+          <li>
+            <span class="year">2007</span>
+            <div>
+              <strong>BS Computer Science</strong>
+              <p>Graduated with foundation in software engineering and computing.</p>
+            </div>
+          </li>
+          <li>
+            <span class="year">Industry</span>
+            <div>
+              <strong>Senior Front-End UI/UX Developer</strong>
+              <p>Korean technology company — product interfaces and design systems.</p>
+            </div>
+          </li>
+          <li>
+            <span class="year">Practice</span>
+            <div>
+              <strong>BPO & Freelance Web Developer</strong>
+              <p>Web projects across multiple domains — sites, apps, and maintenance.</p>
+            </div>
+          </li>
+          <li>
+            <span class="year">Present</span>
+            <div>
+              <strong>PUP IT Faculty</strong>
+              <p>Teaching web development at the Institute of Technology, PUP Manila.</p>
+            </div>
+          </li>
+          <li>
+            <span class="year">Present</span>
+            <div>
+              <strong>MSIT — PUP Graduate School</strong>
+              <p>Data analytics specialization, research, and academic writing.</p>
+            </div>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Technical profile</span>
+        <h2>Skills & tools</h2>
+      </div>
+      <div class="skills-grid">
+        {
+          Object.entries(skills).map(([group, items]) => (
+            <div class="skill-group card">
+              <h3>{group}</h3>
+              <ul>
+                {items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 4rem 0 1rem;
+  }
+
+  .about-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 900px) {
+    .about-grid {
+      grid-template-columns: 1.5fr 1fr;
+    }
+  }
+
+  .prose,
+  .timeline {
+    padding: 2rem;
+  }
+
+  .prose p {
+    color: var(--color-ink-muted);
+  }
+
+  .timeline ul {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .timeline li {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .timeline li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .year {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .timeline p {
+    font-size: 0.9rem;
+    color: var(--color-ink-muted);
+    margin: 0.25rem 0 0;
+  }
+
+  .section-alt {
+    background: var(--color-surface);
+    border-block: 1px solid var(--color-border);
+  }
+
+  .skills-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .skill-group {
+    padding: 1.35rem;
+  }
+
+  .skill-group h3 {
+    text-transform: capitalize;
+    font-size: 1rem;
+    color: var(--color-navy);
+  }
+
+  .skill-group li {
+    font-size: 0.92rem;
+    color: var(--color-ink-muted);
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .skill-group li:last-child {
+    border-bottom: none;
+  }
+</style>
