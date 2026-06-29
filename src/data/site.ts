@@ -1,6 +1,6 @@
 export const site = {
   name: 'Jerome Tuballas De Guzman',
-  shortName: 'Jerome De Guzman',
+  shortName: 'Jerome T. De Guzman',
   title: 'Full-Stack Developer & Web Development Instructor',
   tagline:
     'I build practical web systems and teach the fundamentals that power them — HTML, CSS, PHP, and MySQL — backed by industry UI/UX experience and years of freelance delivery.',
