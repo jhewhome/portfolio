@@ -1,7 +1,13 @@
 ---
 import { nav, site } from '../data/site';
 
-const currentPath = Astro.url.pathname;
+const normalizePath = (path: string) => {
+  if (!path) return '/';
+  if (path === '/') return '/';
+  return path.endsWith('/') ? path.slice(0, -1) : path;
+};
+
+const currentPath = normalizePath(Astro.url.pathname);
 ---
 
 <header class="site-header">
@@ -21,8 +27,8 @@ const currentPath = Astro.url.pathname;
             <li>
               <a
                 href={item.href}
-                class:list={['nav-link', { active: currentPath === item.href }]}
-                aria-current={currentPath === item.href ? 'page' : undefined}
+                class:list={['nav-link', { active: currentPath === normalizePath(item.href) }]}
+                aria-current={currentPath === normalizePath(item.href) ? 'page' : undefined}
               >
                 {item.label}
               </a>
