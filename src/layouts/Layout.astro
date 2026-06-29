@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import BackToTop from '../components/BackToTop.astro';
 import { site } from '../data/site';
 
 interface Props {
@@ -17,7 +18,7 @@ const pageTitle = title ? `${title} | ${site.shortName}` : `${site.shortName} â€
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content={description} />
     <meta name="author" content={site.name} />
     <link rel="canonical" href={new URL(Astro.url.pathname, site.url).href} />
@@ -40,6 +41,7 @@ const pageTitle = title ? `${title} | ${site.shortName}` : `${site.shortName} â€
       <slot />
     </main>
     <Footer />
+    <BackToTop />
   </body>
 </html>
 

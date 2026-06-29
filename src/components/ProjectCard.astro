@@ -144,4 +144,20 @@ const { project } = Astro.props;
     font-size: 0.85rem;
     padding: 0.6rem 1rem;
   }
+
+  @media (max-width: 640px) {
+    .project-card {
+      padding: 1.25rem;
+    }
+
+    .card-actions {
+      flex-direction: column;
+    }
+
+    .card-actions .btn {
+      width: 100%;
+      justify-content: center;
+      min-height: 44px;
+    }
+  }
 </style>

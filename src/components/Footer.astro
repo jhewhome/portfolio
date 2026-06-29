@@ -107,4 +107,30 @@ const year = new Date().getFullYear();
     font-size: 0.85rem;
     color: #8fa0bf;
   }
+
+  @media (max-width: 640px) {
+    .site-footer {
+      padding: 2.5rem 0 calc(1.5rem + env(safe-area-inset-bottom));
+    }
+
+    .footer-grid {
+      gap: 1.5rem;
+    }
+
+    .footer-open {
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .footer-links a {
+      display: inline-block;
+      padding: 0.35rem 0;
+      word-break: break-word;
+    }
+
+    .footer-bottom {
+      margin-top: 1.75rem;
+      text-align: center;
+    }
+  }
 </style>
