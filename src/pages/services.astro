@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { services } from '../data/site';
+import IconBadge from '../components/IconBadge.astro';
+import { services, processSteps } from '../data/site';
 ---
 
 <Layout title="Services" description="Freelance web development services by Jerome T. De Guzman — websites, PHP/MySQL apps, WordPress maintenance, SEO, UI implementation, and tutoring.">
@@ -20,7 +21,10 @@ import { services } from '../data/site';
       {
         services.map((service) => (
           <article class="service-card card">
-            <h2>{service.title}</h2>
+            <div class="service-card-header">
+              <IconBadge name={service.icon} />
+              <h2>{service.title}</h2>
+            </div>
             <p>{service.description}</p>
           </article>
         ))
@@ -35,22 +39,15 @@ import { services } from '../data/site';
         <h2>A straightforward process</h2>
       </div>
       <ol class="process-list">
-        <li>
-          <strong>Discover</strong>
-          <span>Understand your goals, users, and constraints.</span>
-        </li>
-        <li>
-          <strong>Plan</strong>
-          <span>Define scope, timeline, and tech stack — no surprises.</span>
-        </li>
-        <li>
-          <strong>Build</strong>
-          <span>Iterative development with clear communication.</span>
-        </li>
-        <li>
-          <strong>Deliver</strong>
-          <span>Launch, handoff, and optional ongoing support.</span>
-        </li>
+        {
+          processSteps.map((step) => (
+            <li>
+              <IconBadge name={step.icon} size="sm" variant="soft" />
+              <strong>{step.title}</strong>
+              <span>{step.text}</span>
+            </li>
+          ))
+        }
       </ol>
     </div>
   </section>
@@ -79,11 +76,27 @@ import { services } from '../data/site';
 
   .service-card {
     padding: 1.75rem;
+    transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .service-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+    border-color: rgba(124, 58, 237, 0.28);
+  }
+
+  .service-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.85rem;
   }
 
   .service-card h2 {
     font-size: 1.15rem;
     color: var(--color-navy);
+    margin: 0.15rem 0 0;
+    line-height: 1.35;
   }
 
   .service-card p {
@@ -119,15 +132,19 @@ import { services } from '../data/site';
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
   }
 
   .process-list li::before {
     content: counter(step, decimal-leading-zero);
-    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
     font-size: 0.75rem;
     font-weight: 700;
     color: var(--color-accent);
-    margin-bottom: 0.75rem;
   }
 
   .process-list strong {

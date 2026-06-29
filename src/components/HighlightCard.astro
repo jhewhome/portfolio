@@ -1,14 +1,20 @@
 ---
+import IconBadge from './IconBadge.astro';
+
 interface Props {
   label: string;
   text: string;
+  icon: string;
 }
 
-const { label, text } = Astro.props;
+const { label, text, icon } = Astro.props;
 ---
 
 <div class="highlight-card card">
-  <p class="highlight-label">{label}</p>
+  <div class="highlight-top">
+    <IconBadge name={icon} size="sm" variant="soft" />
+    <p class="highlight-label">{label}</p>
+  </div>
   <p class="highlight-text">{text}</p>
 </div>
 
@@ -17,13 +23,20 @@ const { label, text } = Astro.props;
     padding: 1.25rem 1.35rem;
   }
 
+  .highlight-top {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 0.65rem;
+  }
+
   .highlight-label {
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.07em;
     text-transform: uppercase;
     color: var(--color-accent);
-    margin-bottom: 0.5rem;
+    margin: 0;
   }
 
   .highlight-text {

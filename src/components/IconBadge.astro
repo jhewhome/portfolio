@@ -1,0 +1,253 @@
+---
+interface Props {
+  name: string;
+  size?: 'sm' | 'md';
+  variant?: 'gradient' | 'soft';
+}
+
+const { name, size = 'md', variant = 'gradient' } = Astro.props;
+---
+
+<div
+  class:list={['icon-badge', `icon-badge--${size}`, `icon-badge--${variant}`]}
+  aria-hidden="true"
+>
+  {
+    name === 'website' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.75" />
+        <path d="M3 9h18M8 4v4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+      </svg>
+    )
+  }
+  {
+    name === 'app' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.75" />
+        <path d="M8 7h8M6 11h12M8 15h8" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+      </svg>
+    )
+  }
+  {
+    name === 'ui' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.75" />
+        <path d="M4 9h16M9 9v11" stroke="currentColor" stroke-width="1.75" />
+      </svg>
+    )
+  }
+  {
+    name === 'maintenance' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M14.7 6.3a4 4 0 0 0-5.4 5.4L5 15l4 4 3.3-4.3a4 4 0 0 0 5.4-5.4l-2.2 2.2-2.2-2.2 2.2-2.2Z"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linejoin="round"></path>
+      </svg>
+    )
+  }
+  {
+    name === 'wordpress' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75" />
+        <path d="M12 7.5v9M9 10.5h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+      </svg>
+    )
+  }
+  {
+    name === 'tutoring' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M4 19V6.5a1 1 0 0 1 .6-.9L12 3l7.4 2.6a1 1 0 0 1 .6.9V19l-8-3-8 3Z"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linejoin="round"></path>
+        <path d="M12 6v10" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+      </svg>
+    )
+  }
+  {
+    name === 'education' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M4 10l8-4 8 4-8 4-8-4Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round" />
+        <path d="M6 12v4.5c0 .8 2.7 2.5 6 2.5s6-1.7 6-2.5V12" stroke="currentColor" stroke-width="1.75" />
+      </svg>
+    )
+  }
+  {
+    name === 'teaching' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M4 6h16v10H4z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round" />
+        <path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+      </svg>
+    )
+  }
+  {
+    name === 'industry' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.75" />
+        <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.75" />
+      </svg>
+    )
+  }
+  {
+    name === 'practice' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="5" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.75" />
+        <path d="M8 21h8" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+      </svg>
+    )
+  }
+  {
+    name === 'research' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M10 4h4l1 5h-6l1-5Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round" />
+        <path d="M8 14h8v6H8z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round" />
+        <path d="M6 14h12" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+      </svg>
+    )
+  }
+  {
+    name === 'frontend' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M8 9l-3 3 3 3M16 9l3 3-3 3M14 7l-4 10" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+      </svg>
+    )
+  }
+  {
+    name === 'backend' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <rect x="4" y="4" width="16" height="6" rx="1.5" stroke="currentColor" stroke-width="1.75" />
+        <rect x="4" y="14" width="16" height="6" rx="1.5" stroke="currentColor" stroke-width="1.75" />
+        <circle cx="8" cy="7" r="1" fill="currentColor" /><circle cx="8" cy="17" r="1" fill="currentColor" />
+      </svg>
+    )
+  }
+  {
+    name === 'database' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <ellipse cx="12" cy="6" rx="8" ry="3" stroke="currentColor" stroke-width="1.75" />
+        <path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6" stroke="currentColor" stroke-width="1.75" />
+        <path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" stroke="currentColor" stroke-width="1.75" />
+      </svg>
+    )
+  }
+  {
+    name === 'analytics' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M4 19V5M4 19h16" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+        <path d="M8 15v-4M12 15V9M16 15V7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+      </svg>
+    )
+  }
+  {
+    name === 'tools' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M14.7 6.3a4 4 0 0 0-5.4 5.4L4 15.6l4.4 4.4 4.3-5.3a4 4 0 0 0 5.4-5.4l-2.2 2.2-2.2-2.2 2.2-2.2Z"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linejoin="round"></path>
+      </svg>
+    )
+  }
+  {
+    name === 'email' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.75" />
+        <path d="m3 7 9 6 9-6" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round" />
+      </svg>
+    )
+  }
+  {
+    name === 'globe' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75" />
+        <path d="M3 12h18M12 3c2.5 2.7 4 5.6 4 9s-1.5 6.3-4 9M12 3c-2.5 2.7-4 5.6-4 9s1.5 6.3 4 9" stroke="currentColor" stroke-width="1.75" />
+      </svg>
+    )
+  }
+  {
+    name === 'calendar' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.75" />
+        <path d="M8 3v4M16 3v4M3 10h18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+      </svg>
+    )
+  }
+  {
+    name === 'freelance' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M12 3v18M7 8h7a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+      </svg>
+    )
+  }
+  {
+    name === 'discover' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.75" />
+        <path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+      </svg>
+    )
+  }
+  {
+    name === 'plan' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M7 4h10v16H7z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round" />
+        <path d="M9 8h6M9 12h6M9 16h4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+      </svg>
+    )
+  }
+  {
+    name === 'build' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="m4 20 6-6M14 6l4 4M10 10l8-8 2 2-8 8" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+      </svg>
+    )
+  }
+  {
+    name === 'deliver' && (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    )
+  }
+</div>
+
+<style>
+  .icon-badge {
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .icon-badge--md {
+    width: 48px;
+    height: 48px;
+  }
+
+  .icon-badge--sm {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  .icon-badge--sm svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .icon-badge--gradient {
+    background: var(--gradient-accent);
+    color: #fff;
+  }
+
+  .icon-badge--soft {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    box-shadow: none;
+  }
+</style>

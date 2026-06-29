@@ -2,7 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import HighlightCard from '../components/HighlightCard.astro';
-import { site, highlights, skills } from '../data/site';
+import SkillGroupCard from '../components/SkillGroupCard.astro';
+import { site, highlights, skills, skillIcons } from '../data/site';
 import { getFeaturedProjects } from '../data/projects';
 
 const featured = getFeaturedProjects();
@@ -60,7 +61,9 @@ const featured = getFeaturedProjects();
         <h2>Experience that spans industry, teaching, and research</h2>
       </div>
       <div class="grid-2 highlights-grid">
-        {highlights.map((item) => <HighlightCard label={item.label} text={item.text} />)}
+        {highlights.map((item) => (
+          <HighlightCard label={item.label} text={item.text} icon={item.icon} />
+        ))}
       </div>
     </div>
   </section>
@@ -90,14 +93,7 @@ const featured = getFeaturedProjects();
       <div class="skills-grid">
         {
           Object.entries(skills).map(([group, items]) => (
-            <div class="skill-group card">
-              <h3>{group.charAt(0).toUpperCase() + group.slice(1)}</h3>
-              <ul>
-                {items.map((item) => (
-                  <li>{item}</li>
-                ))}
-              </ul>
-            </div>
+            <SkillGroupCard group={group} items={items} icon={skillIcons[group] ?? 'tools'} />
           ))
         }
       </div>
@@ -246,28 +242,6 @@ const featured = getFeaturedProjects();
     display: grid;
     gap: 1.25rem;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
-  .skill-group {
-    padding: 1.35rem;
-  }
-
-  .skill-group h3 {
-    font-size: 1rem;
-    text-transform: capitalize;
-    margin-bottom: 0.85rem;
-    color: var(--color-navy);
-  }
-
-  .skill-group li {
-    font-size: 0.92rem;
-    color: var(--color-ink-muted);
-    padding: 0.3rem 0;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .skill-group li:last-child {
-    border-bottom: none;
   }
 
   .cta-band {

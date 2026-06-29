@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { skills, site } from '../data/site';
+import SkillGroupCard from '../components/SkillGroupCard.astro';
+import IconBadge from '../components/IconBadge.astro';
+import { skills, site, skillIcons, timeline } from '../data/site';
 ---
 
 <Layout title="About" description={`About Jerome Tuballas De Guzman — ${site.facultyRole} at PUP, MSIT student, former Senior UI/UX Developer, and full-stack web practitioner.`}>
@@ -57,41 +59,18 @@ import { skills, site } from '../data/site';
       <aside class="timeline card">
         <h2>Timeline</h2>
         <ul>
-          <li>
-            <span class="year">2007</span>
-            <div>
-              <strong>BS Computer Science</strong>
-              <p>Graduated with foundation in software engineering and computing.</p>
-            </div>
-          </li>
-          <li>
-            <span class="year">Industry</span>
-            <div>
-              <strong>Senior Front-End UI/UX Developer</strong>
-              <p>Korean technology company — product interfaces and design systems.</p>
-            </div>
-          </li>
-          <li>
-            <span class="year">Practice</span>
-            <div>
-              <strong>BPO & Freelance Web Developer</strong>
-              <p>Web projects across multiple domains — sites, apps, and maintenance.</p>
-            </div>
-          </li>
-          <li>
-            <span class="year">Present</span>
-            <div>
-              <strong>CE & IT Department Faculty</strong>
-              <p>Part-time faculty member, PUP Manila, Institute of Technology.</p>
-            </div>
-          </li>
-          <li>
-            <span class="year">Present</span>
-            <div>
-              <strong>MSIT — PUP Graduate School</strong>
-              <p>Data analytics specialization, research, and academic writing.</p>
-            </div>
-          </li>
+          {
+            timeline.map((entry) => (
+              <li>
+                <IconBadge name={entry.icon} size="sm" variant="soft" />
+                <div class="timeline-body">
+                  <span class="year">{entry.year}</span>
+                  <strong>{entry.title}</strong>
+                  <p>{entry.text}</p>
+                </div>
+              </li>
+            ))
+          }
         </ul>
       </aside>
     </div>
@@ -106,14 +85,7 @@ import { skills, site } from '../data/site';
       <div class="skills-grid">
         {
           Object.entries(skills).map(([group, items]) => (
-            <div class="skill-group card">
-              <h3>{group}</h3>
-              <ul>
-                {items.map((item) => (
-                  <li>{item}</li>
-                ))}
-              </ul>
-            </div>
+            <SkillGroupCard group={group} items={items} icon={skillIcons[group] ?? 'tools'} />
           ))
         }
       </div>
@@ -183,8 +155,9 @@ import { skills, site } from '../data/site';
 
   .timeline li {
     display: grid;
-    grid-template-columns: 72px 1fr;
+    grid-template-columns: auto 1fr;
     gap: 1rem;
+    align-items: start;
     padding-bottom: 1.25rem;
     border-bottom: 1px solid var(--color-border);
   }
@@ -194,12 +167,18 @@ import { skills, site } from '../data/site';
     padding-bottom: 0;
   }
 
+  .timeline-body {
+    min-width: 0;
+  }
+
   .year {
+    display: block;
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: var(--color-accent);
+    margin-bottom: 0.25rem;
   }
 
   .timeline p {
@@ -217,27 +196,6 @@ import { skills, site } from '../data/site';
     display: grid;
     gap: 1.25rem;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
-  .skill-group {
-    padding: 1.35rem;
-  }
-
-  .skill-group h3 {
-    text-transform: capitalize;
-    font-size: 1rem;
-    color: var(--color-navy);
-  }
-
-  .skill-group li {
-    font-size: 0.92rem;
-    color: var(--color-ink-muted);
-    padding: 0.3rem 0;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .skill-group li:last-child {
-    border-bottom: none;
   }
 
   @media (max-width: 640px) {

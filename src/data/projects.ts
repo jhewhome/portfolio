@@ -1,5 +1,13 @@
 export type ProjectTag = 'Graduate Research' | 'Freelance' | 'Teaching' | 'Industry' | 'Analytics';
 
+export const projectTagIcons: Record<ProjectTag, string> = {
+  'Graduate Research': 'research',
+  Freelance: 'freelance',
+  Teaching: 'teaching',
+  Industry: 'industry',
+  Analytics: 'analytics',
+};
+
 export interface Project {
   slug: string;
   title: string;

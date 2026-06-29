@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { projects } from '../data/projects';
+import IconBadge from '../components/IconBadge.astro';
+import { projects, projectTagIcons } from '../data/projects';
 ---
 
 <Layout title="Projects" description="Selected projects by Jerome T. De Guzman — graduate research, freelance work, teaching systems, and industry experience.">
@@ -38,7 +39,10 @@ import { projects } from '../data/projects';
               </div>
             </div>
 
-            <h2>{project.title}</h2>
+            <div class="project-title-row">
+              <IconBadge name={projectTagIcons[project.tags[0]] ?? 'app'} />
+              <h2>{project.title}</h2>
+            </div>
             <p class="summary">{project.summary}</p>
             <p class="description">{project.description}</p>
 
@@ -80,6 +84,18 @@ import { projects } from '../data/projects';
   .project-detail {
     padding: 2rem;
     scroll-margin-top: calc(var(--header-height) + 1rem);
+  }
+
+  .project-title-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-title-row h2 {
+    margin: 0.2rem 0 0;
+    line-height: 1.3;
   }
 
   .tags {

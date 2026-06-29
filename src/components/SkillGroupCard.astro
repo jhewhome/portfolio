@@ -1,0 +1,54 @@
+---
+import IconBadge from './IconBadge.astro';
+
+interface Props {
+  group: string;
+  items: string[];
+  icon: string;
+}
+
+const { group, items, icon } = Astro.props;
+---
+
+<div class="skill-group card">
+  <div class="skill-group-header">
+    <IconBadge name={icon} size="sm" variant="soft" />
+    <h3>{group.charAt(0).toUpperCase() + group.slice(1)}</h3>
+  </div>
+  <ul>
+    {items.map((item) => (
+      <li>{item}</li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .skill-group {
+    padding: 1.35rem;
+  }
+
+  .skill-group-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .skill-group h3 {
+    font-size: 1rem;
+    text-transform: capitalize;
+    margin: 0;
+    color: var(--color-navy);
+  }
+
+  .skill-group li {
+    font-size: 0.92rem;
+    color: var(--color-ink-muted);
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .skill-group li:last-child {
+    border-bottom: none;
+  }
+</style>
