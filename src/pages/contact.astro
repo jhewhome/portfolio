@@ -17,8 +17,8 @@ import { site, social } from '../data/site';
   </section>
 
   <section class="section">
-    <div class="container contact-grid">
-      <div class="contact-card card">
+    <div class="container contact-grid" data-reveal-stagger>
+      <div class="contact-card card reveal-item">
         <div class="contact-card-header">
           <IconBadge name="email" size="sm" variant="soft" />
           <h2>Email</h2>
@@ -27,7 +27,7 @@ import { site, social } from '../data/site';
         <a href={`mailto:${site.email}`} class="email-link">{site.email}</a>
       </div>
 
-      <div class="contact-card card">
+      <div class="contact-card card reveal-item">
         <div class="contact-card-header">
           <IconBadge name="globe" size="sm" variant="soft" />
           <h2>Online</h2>
@@ -50,7 +50,7 @@ import { site, social } from '../data/site';
         </ul>
       </div>
 
-      <div class="contact-card card availability">
+      <div class="contact-card card availability reveal-item">
         <div class="contact-card-header">
           <IconBadge name="calendar" size="sm" variant="soft" />
           <h2>Availability</h2>

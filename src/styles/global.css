@@ -259,6 +259,10 @@ body.nav-open {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .grid-2 {
@@ -296,4 +300,91 @@ body.nav-open {
 ::selection {
   background: var(--color-accent-soft);
   color: var(--color-accent-dark);
+}
+
+/* --- Subtle animations --- */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal-stagger] > .reveal-item {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-reveal-stagger].is-visible > .reveal-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal-stagger].is-visible > .reveal-item:nth-child(1) {
+  transition-delay: 0ms;
+}
+[data-reveal-stagger].is-visible > .reveal-item:nth-child(2) {
+  transition-delay: 70ms;
+}
+[data-reveal-stagger].is-visible > .reveal-item:nth-child(3) {
+  transition-delay: 140ms;
+}
+[data-reveal-stagger].is-visible > .reveal-item:nth-child(4) {
+  transition-delay: 210ms;
+}
+[data-reveal-stagger].is-visible > .reveal-item:nth-child(5) {
+  transition-delay: 280ms;
+}
+[data-reveal-stagger].is-visible > .reveal-item:nth-child(6) {
+  transition-delay: 350ms;
+}
+
+.hero-animate {
+  animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-animate--delay {
+  animation-delay: 0.12s;
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-reveal],
+  [data-reveal-stagger] > .reveal-item,
+  .hero-animate {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.22s;
+  animation-timing-function: ease;
 }

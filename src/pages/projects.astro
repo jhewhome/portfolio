@@ -17,10 +17,10 @@ import { projects, projectTagIcons } from '../data/projects';
   </section>
 
   <section class="section">
-    <div class="container projects-list">
+    <div class="container projects-list" data-reveal-stagger>
       {
         projects.map((project) => (
-          <article id={project.slug} class="project-detail card">
+          <article id={project.slug} class="project-detail card reveal-item">
             <div class="project-meta">
               <div class="tags">
                 {project.tags.map((tag) => (

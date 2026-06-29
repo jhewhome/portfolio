@@ -17,10 +17,10 @@ import { services, processSteps } from '../data/site';
   </section>
 
   <section class="section">
-    <div class="container services-grid">
+    <div class="container services-grid" data-reveal-stagger>
       {
         services.map((service) => (
-          <article class="service-card card">
+          <article class="service-card card reveal-item">
             <div class="service-card-header">
               <IconBadge name={service.icon} />
               <h2>{service.title}</h2>
@@ -38,10 +38,10 @@ import { services, processSteps } from '../data/site';
         <span class="section-label">How I work</span>
         <h2>A straightforward process</h2>
       </div>
-      <ol class="process-list">
+      <ol class="process-list" data-reveal-stagger>
         {
           processSteps.map((step) => (
-            <li>
+            <li class="reveal-item">
               <IconBadge name={step.icon} size="sm" variant="soft" />
               <strong>{step.title}</strong>
               <span>{step.text}</span>

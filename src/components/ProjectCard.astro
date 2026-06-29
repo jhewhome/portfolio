@@ -12,7 +12,7 @@ const { project } = Astro.props;
 const projectIcon = projectTagIcons[project.tags[0]] ?? 'app';
 ---
 
-<article class="project-card card">
+<article class="project-card card reveal-item">
   <div class="card-top">
     <div class="card-title-row">
       <IconBadge name={projectIcon} size="sm" variant="soft" />

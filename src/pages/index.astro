@@ -12,7 +12,7 @@ const featured = getFeaturedProjects();
 <Layout>
   <section class="hero">
     <div class="container hero-grid">
-      <div class="hero-content">
+      <div class="hero-content hero-animate">
         <p class="eyebrow">Part-time Faculty · PUP Manila · Institute of Technology</p>
         <h1>{site.shortName}</h1>
         <p class="hero-title">{site.title}</p>
@@ -33,7 +33,7 @@ const featured = getFeaturedProjects();
         </ul>
       </div>
 
-      <aside class="hero-panel card">
+      <aside class="hero-panel card hero-animate hero-animate--delay">
         <img
           class="hero-photo"
           src="/images/jerome-faculty.png"
@@ -60,7 +60,7 @@ const featured = getFeaturedProjects();
         <span class="section-label">Background</span>
         <h2>Experience that spans industry, teaching, and research</h2>
       </div>
-      <div class="grid-2 highlights-grid">
+      <div class="grid-2 highlights-grid" data-reveal-stagger>
         {highlights.map((item) => (
           <HighlightCard label={item.label} text={item.text} icon={item.icon} />
         ))}
@@ -78,7 +78,7 @@ const featured = getFeaturedProjects();
         </div>
         <a href="/projects" class="btn btn-secondary">All projects</a>
       </div>
-      <div class="grid-2 projects-grid">
+      <div class="grid-2 projects-grid" data-reveal-stagger>
         {featured.map((project) => <ProjectCard project={project} />)}
       </div>
     </div>
@@ -90,7 +90,7 @@ const featured = getFeaturedProjects();
         <span class="section-label">Skills</span>
         <h2>What I work with</h2>
       </div>
-      <div class="skills-grid">
+      <div class="skills-grid" data-reveal-stagger>
         {
           Object.entries(skills).map(([group, items]) => (
             <SkillGroupCard group={group} items={items} icon={skillIcons[group] ?? 'tools'} />

@@ -18,7 +18,7 @@ import { skills, site, skillIcons, timeline } from '../data/site';
 
   <section class="section">
     <div class="container about-grid">
-      <div class="prose card">
+      <div class="prose card" data-reveal>
         <div class="about-header">
           <img
             class="about-photo"
@@ -58,10 +58,10 @@ import { skills, site, skillIcons, timeline } from '../data/site';
 
       <aside class="timeline card">
         <h2>Timeline</h2>
-        <ul>
+        <ul data-reveal-stagger>
           {
             timeline.map((entry) => (
-              <li>
+              <li class="reveal-item">
                 <IconBadge name={entry.icon} size="sm" variant="soft" />
                 <div class="timeline-body">
                   <span class="year">{entry.year}</span>
@@ -82,7 +82,7 @@ import { skills, site, skillIcons, timeline } from '../data/site';
         <span class="section-label">Technical profile</span>
         <h2>Skills & tools</h2>
       </div>
-      <div class="skills-grid">
+      <div class="skills-grid" data-reveal-stagger>
         {
           Object.entries(skills).map(([group, items]) => (
             <SkillGroupCard group={group} items={items} icon={skillIcons[group] ?? 'tools'} />

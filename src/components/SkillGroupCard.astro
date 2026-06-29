@@ -10,7 +10,7 @@ interface Props {
 const { group, items, icon } = Astro.props;
 ---
 
-<div class="skill-group card">
+<div class="skill-group card reveal-item">
   <div class="skill-group-header">
     <IconBadge name={icon} size="sm" variant="soft" />
     <h3>{group.charAt(0).toUpperCase() + group.slice(1)}</h3>
