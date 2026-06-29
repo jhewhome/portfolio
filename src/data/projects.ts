@@ -46,13 +46,12 @@ export const projects: Project[] = [
     summary:
       'Integrated Barangay Information System (BIS) and Barangay Health Center (BHC) workflows — residents, health registry, queues, and reporting.',
     description:
-      'A unified system combining BIS and BHC operations for Barangay Balong Bato. The repository includes BHC (PHP/MySQL) and BIS (ASP.NET Core/MongoDB) with integration features (e.g., SSO, resident handoff, and cross-system workflows). A public demo is available, but may lag behind the latest code.',
+      'A unified system combining BIS and BHC operations for Barangay Balong Bato. The repository includes BHC (PHP/MySQL) and BIS (ASP.NET Core/MongoDB) with integration features (e.g., SSO, resident handoff, and cross-system workflows). This project is primarily demonstrated locally; a live demo can be provided on request.',
     tags: ['Freelance', 'Industry'],
     stack: ['PHP', 'MySQL', '.NET 8', 'MongoDB', 'HTML', 'CSS', 'JavaScript'],
-    href: 'https://bhcs.free.nf/',
     github: 'https://github.com/jhewhome/barangay-integrated-system',
     featured: true,
-    status: 'Live',
+    status: 'Completed',
   },
   {
     slug: 'freelance-web-projects',
