@@ -61,7 +61,7 @@ export const skills = {
   backend: ['PHP', 'REST APIs', 'Session-based auth', 'Server-side rendering'],
   database: ['MySQL', 'Schema design', 'Query optimization'],
   analytics: ['Data analysis', 'Dashboards', 'Research methods'],
-  tools: ['Git', 'VS Code', 'Figma', 'Linux hosting', 'InfinityFree / cPanel'],
+  tools: ['Git', 'VS Code', 'Figma', 'WordPress', 'SEO', 'Linux hosting', 'InfinityFree / cPanel'],
 };
 
 export const services = [
@@ -84,6 +84,11 @@ export const services = [
     title: 'Maintenance & Enhancements',
     description:
       'Bug fixes, feature additions, performance improvements, and hosting support.',
+  },
+  {
+    title: 'WordPress Maintenance & SEO',
+    description:
+      'Ongoing WordPress site administration for niche businesses — theme and plugin setup, content updates, security patches, backups, and on-page SEO (metadata, technical fixes, and performance tuning) to improve visibility and conversions.',
   },
   {
     title: 'Web Development Tutoring',
